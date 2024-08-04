@@ -1,0 +1,20 @@
+
+o
+java:S2293^"YReplace the type specification in this constructor call with the diamond operator ("<>").(Í¬•þ
+p
+java:S2293­"YReplace the type specification in this constructor call with the diamond operator ("<>").(Í¬•þ
+c
+java:S1192F"HDefine a constant instead of duplicating this literal "usuario" 3 times.(›õ×¶ûÿÿÿÿ
+y
+java:S1192H"WDefine a constant instead of duplicating this literal "/publica-criar-usuario" 3 times.(Ç¢ž­úÿÿÿÿ8Ì²µˆò1
+{
+java:S1192ˆ"_Define a constant instead of duplicating this literal "redirect:/usuario/admin/listar" 3 times.(”ËÖýÿÿÿÿÿ
+]	java:S125G"<This block of commented-out lines of code should be removed.(å´ ãùÿÿÿÿ8ñ²ˆò1
+[
+java:S4684M"@Replace this persistent entity with a simple POJO or DTO object.(³®Ðîÿÿÿÿÿ
+]	java:S125P"<This block of commented-out lines of code should be removed.(å´ ãùÿÿÿÿ8Õæ´ˆò1
+]	java:S125X"<This block of commented-out lines of code should be removed.(å´ ãùÿÿÿÿ8Žºµˆò1
+\
+java:S4684‚"@Replace this persistent entity with a simple POJO or DTO object.(èßÉ©üÿÿÿÿ
+\
+java:S4684¥"@Replace this persistent entity with a simple POJO or DTO object.(Óßžúÿÿÿÿ

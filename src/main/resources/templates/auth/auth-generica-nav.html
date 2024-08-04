@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<body>
+
+
+
+
+<nav th:fragment="nav" class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link active"
+                                        aria-current="page" href="/login">Página Inicial</a></li><br><br>
+
+                <div th:fragment="navGenerica">
+
+                    <div th:if="${ #authorization.expression('hasAuthority(''ADMIN'')')}">
+                        <div th:replace="auth/admin/admin-nav :: nav"></div>
+                    </div>
+
+                        <div th:unless="${ #authorization.expression('hasAuthority(''ADMIN'')')}">
+                            <div th:if="${ #authorization.expression('hasAuthority(''USER'')')}">
+                                <div th:replace="auth/user/user-nav :: nav"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div sec:authorize="!isAuthenticated()">
+                        <div th:replace="fragments/publica-nav :: nav"></div>
+                    </div>
+
+
+</nav>
+</body>
+</html>

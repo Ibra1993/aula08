@@ -1,0 +1,11 @@
+
+2
+java:S1700"Rename field "genero"(›ëï8£á›Ãğ1
+
+java:S4165""dRemove this useless assignment; "genero" already holds the assigned value along all execution paths.(Îî„Ñ8˜ÜœÃğ1
+„
+java:S4144-"bUpdate this method so that its implementation is not identical to "getGeneroDoAcusado" on line 29.(˜À’Úıÿÿÿÿ8©ÜÓÃğ1
+X
+java:S1172!"6Remove this unused method parameter "generoDoAcusado".(„çï²ûÿÿÿÿ8¬ÜœÃğ1
+L
+java:S1656""/Remove or correct this useless self-assignment.(Îî„Ñ8¸ÜœÃğ1

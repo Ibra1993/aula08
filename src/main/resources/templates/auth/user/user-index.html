@@ -1,0 +1,64 @@
+
+
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reg. de ocorrências</title>
+
+    <link rel="stylesheet" th:href="@{/bootstrap-5.1.3-dist/css/bootstrap.min.css}">
+    <script th:src="@{/jquery-3.6.0-dist/jquery-3.6.0.min.js}"></script>
+    <script th:src="@{/bootstrap-5.1.3-dist/js/bootstrap.min.js}"></script>
+
+</head>
+
+
+<body>
+
+
+<nav th:fragment="nav" class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link active"
+                                        aria-current="page" href="/usuario/index">Página Inicial</a></li>
+                <li class="nav-item"><a class="nav-link" href="/usuario/admin/listar">Usuários</a></li>
+                <li class="nav-item"><a class="nav-link" href="/usuario/novo">Criar novo Usuário</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2 th:text="${msnBemVindo}"></h2>
+        </div>
+    </div>
+</div>
+
+
+<br><br>
+<div class="d-grid gap-2 col-6 mx-auto">
+
+    <a th:href="@{/crime/novo}" class="btn btn-secondary" type="button">Registrar Ocorrência</a>
+    <a th:href="@{/relatorio/exibir}" class="btn btn-secondary" type="button">Relatório</a>
+    <a th:href="@{/vitima/listar}" class="btn btn-secondary" type="button">Listar Vítimas</a>
+    <a th:href="@{/crime/listar}" class="btn btn-secondary" type="button">Listar Ocorrências</a>
+
+
+</div>
+</body>
+</html>
+
+
+

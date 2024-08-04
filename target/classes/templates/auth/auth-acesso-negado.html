@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Acesso negado</title>
+
+
+  <link rel="stylesheet" th:href="@{/bootstrap-5.1.3-dist/css/bootstrap.min.css}">
+  <script th:src="@{/jquery-3.6.0-dist/jquery-3.6.0.min.js}"></script>
+  <script th:src="@{/bootstrap-5.1.3-dist/js/bootstrap.min.js}"></script>
+
+</head>
+
+
+<nav th:fragment="nav" class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link active"
+                                aria-current="page" href="/">Página Inicial</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<body>
+<h3>Acesso negado</h3>
+</body>
+</html>

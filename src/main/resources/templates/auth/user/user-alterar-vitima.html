@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Atualizar dados da vítima</title>
+
+    <link rel="stylesheet" th:href="@{/bootstrap-5.1.3-dist/css/bootstrap.min.css}">
+    <script th:src="@{/jquery-3.6.0-dist/jquery-3.6.0.min.js}"></script>
+    <script th:src="@{/bootstrap-5.1.3-dist/js/bootstrap.min.js}"></script>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+
+
+
+    <style>
+.mensagem {
+  color: red;
+}
+</style>
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/usuario/index">Pagina Inicial</a><br><br>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row" style="padding-bottom: 30px;">
+        <div class="col">
+            <h2>Atualizar dados  da vítima</h2><br><br>
+
+            <a th:href="@{/crime/listar}" class="btn btn-primary" type="submit">Cancelar </a>
+            <div class="alert alert-success alert-dismissible fade show"
+                 th:if="${mensagem}">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <span th:text="${mensagem}"></span>
+            </div>
+            <br><br>
+
+            <form th:action="@{/vitima/alterar-vitima/{idCrime}/{idVitima}(idCrime=${novaVitima.crime.id},idVitima=${novaVitima.id})}"
+                  th:object="${novaVitima}" method="post">
+
+
+
+                <div class="row mb-3">
+
+                    <label class="col-sm-1 col-form-label">Nome:</label>
+                    <div class="col-sm-5">
+                        <input class="form-control"  type="text" th:field="*{nome}"  placeholder="nome da vítima">
+                    </div>
+
+                    <div class="col-sm-5">
+                              <span class="mensagem" th:if="${#fields.hasErrors('nome')}"
+                                    th:errors="*{nome}"></span>
+                    </div>
+                </div>
+
+
+                <div class="row mb-3">
+                    <label class="col-sm-1 col-form-label">Mãe:</label>
+                    <div class="col-sm-5">
+                        <input class="form-control" type="text" th:field="*{mae}" placeholder="nome da mãe">
+                    </div>
+                    <div class="col-sm-5">
+							<span class="mensagem" th:if="${#fields.hasErrors('mae')}"
+                                  th:errors="*{mae}"></span>
+                    </div>
+                </div>
+
+
+                <div class="row mb-3">
+                    <label class="col-sm-1 col-form-label">Pai:</label>
+                    <div class="col-sm-5">
+                        <input class="form-control" type="text" th:field="*{pai}" placeholder="nome do pai">
+                    </div>
+                    <div class="col-sm-5">
+							<span class="mensagem" th:if="${#fields.hasErrors('pai')}"
+                                  th:errors="*{pai}"></span>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-1 col-form-label">Naturalidade:</label>
+                    <!--  <small class="form-text">Caso não haja profissão na lista, favor adicione a profissão.</small> -->
+                    <div class="col-sm-5">
+                        <select class="form-select" th:field="*{naturalidade}">
+                            <th:block th:each="nat : ${naturalidades}">
+                                <option th:value="${nat.id}"
+                                        th:text="${nat.naturalidade}"></option>
+                            </th:block>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-1 col-form-label">Genero:</label>
+                    <!--  <small class="form-text">Caso não haja profissão na lista, favor adicione a profissão.</small> -->
+                    <div class="col-sm-5">
+                        <select class="form-select" th:field="*{genero}">
+                            <th:block th:each="gen : ${generos}">
+                                <option th:value="${gen.id}"
+                                        th:text="${gen.genero}"></option>
+                            </th:block>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="row mb-3">
+                    <label class="col-sm-1 col-form-label">Residência:</label>
+                    <div class="col-sm-5">
+                        <input class="form-control" type="text" th:field="*{residencia}" placeholder="Residência da vítima">
+                    </div>
+                    <div class="col-sm-5">
+							<span class="mensagem" th:if="${#fields.hasErrors('residencia')}"
+                                  th:errors="*{residencia}"></span>
+                    </div>
+                </div>
+
+
+                <div class="row mb-3">
+                    <label class="col-sm-1 col-form-label">Endereço:</label>
+                    <div class="col-sm-5">
+                        <input class="form-control" type="text" th:field="*{endereco}"
+                               placeholder = "Endereço da vítima"></input>
+                    </div>
+                    <div class="col-sm-5">
+							<span class="mensagem" th:if="${#fields.hasErrors('endereco')}"
+                                  th:errors="*{endereco}"></span>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-1 col-form-label">Nascimento:</label>
+                    <div class="col-sm-2">
+                        <input class="form-control" type="date" th:field="*{nascimento}"
+                               placeholder = "Data de nascimento">
+                    </div>
+                    <div class="col-sm-5">
+							<span class="mensagem" th:if="${#fields.hasErrors('nascimento')}"
+                                  th:errors="*{nascimento}"></span>
+                    </div>
+                </div>
+
+
+                <div class="row mb-3">
+                    <label class="col-sm-1 col-form-label">Estado Civil:</label>
+                    <!--  <small class="form-text">Caso não haja profissão na lista, favor adicione a profissão.</small> -->
+                    <div class="col-sm-5">
+                        <select class="form-select" th:field="*{estadoCivil}">
+                            <th:block th:each="esc : ${estadosCivis}">
+                                <option th:value="${esc.id}"
+                                        th:text="${esc.matrimonio}"></option>
+                            </th:block>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="row mb-3">
+                    <label class="col-sm-1 col-form-label">Telefone:</label>
+                    <div class="col-sm-3">
+                        <input class="form-control" type="text" th:field="*{telefone}"
+                               placeholder = "Telefone da vítima">
+                    </div>
+                    <div class="col-sm-5">
+							<span class="mensagem" th:if="${#fields.hasErrors('telefone')}"
+                                  th:errors="*{telefone}"></span>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-1 col-form-label">Relator:</label>
+                    <div class="col-sm-5">
+                        <input class="form-control" type="text" th:field="*{relatorDoCrime}"
+                               placeholder = "Quem está relatando">
+                    </div>
+                    <div class="col-sm-5">
+							<span class="mensagem" th:if="${#fields.hasErrors('relatorDoCrime')}"
+                                  th:errors="*{relatorDoCrime}"></span>
+                    </div>
+                </div>
+
+
+
+                <div class="row mb-3">
+                    <label class="col-sm-1 col-form-label">Tipo de documento:</label>
+                    <div class="col-sm-5">
+                        <input class="form-control" type="text" th:field="*{tipoDeDocumento}"
+                               placeholder = "Tipo de documento">
+                    </div>
+                    <div class="col-sm-5">
+							<span class="mensagem" th:if="${#fields.hasErrors('tipoDeDocumento')}"
+                                  th:errors="*{tipoDeDocumento}"></span>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-1 col-form-label">Nacionalidade:</label> &nbsp;&nbsp;&nbsp;
+                    <div class="col-sm-5">
+                        <input class="form-control" type="text" th:field="*{nacionalidade}"
+                               placeholder = "Nacionalidade da vítima">
+                    </div>
+                    <div class="col-sm-5">
+							<span class="mensagem" th:if="${#fields.hasErrors('nacionalidade')}"
+                                  th:errors="*{nacionalidade}"></span>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-1 col-form-label">Número de documento:</label>
+                    <div class="col-sm-5">
+                        <input class="form-control" type="text" th:field="*{numeroDoDocumento}"
+                               placeholder = "Número de documento da vítima">
+                    </div>
+                    <div class="col-sm-5">
+							<span class="mensagem" th:if="${#fields.hasErrors('numeroDoDocumento')}"
+                                  th:errors="*{numeroDoDocumento}"></span>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-1 col-form-label">Data da expedição do documento:</label>
+                    <div class="col-sm-2">
+                        <input class="form-control" type="date" th:field="*{dataDaExpedicaoDocumento}"
+                               placeholder = "Data da expedição documento">
+                    </div>
+                    <div class="col-sm-5">
+							<span class="mensagem" th:if="${#fields.hasErrors('dataDaExpedicaoDocumento')}"
+                                  th:errors="*{dataDaExpedicaoDocumento}"></span>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-1 col-form-label">WhatsApp:</label>
+                    <div class="col-sm-3">
+                        <input class="form-control" type="text" th:field="*{zap}"
+                               placeholder = "WhatsApp da vítima">
+                    </div>
+                    <div class="col-sm-5">
+							<span class="mensagem" th:if="${#fields.hasErrors('zap')}"
+                                  th:errors="*{zap}"></span>
+                    </div>
+                </div>
+
+
+                <div class="row mb-3">
+                    <label class="col-sm-1 col-form-label">Email:</label>
+                    <div class="col-sm-4">
+                        <input class="form-control" type="text" th:field="*{email}"
+                               placeholder = "Email da vítima">
+                    </div>
+                    <div class="col-sm-5">
+							<span class="mensagem" th:if="${#fields.hasErrors('email')}"
+                                  th:errors="*{email}"></span>
+                    </div>
+                </div>
+
+                <!--
+                            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                                <div class="container-fluid">
+                                    <a class="btn btn-primary btn-sm" th:href="@{/profissao/novo}" role="button" disabled>Adicionar a profissão</a>
+                                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+
+                                </div>
+                            </nav>
+
+                -->
+                <div class="row mb-3">
+                    <label class="col-sm-1 col-form-label">Profissões:</label>
+                    <!--  <small class="form-text">Caso não haja profissão na lista, favor adicione a profissão.</small> -->
+                    <div class="col-sm-5">
+                        <select class="form-select" th:field="*{profissao}">
+                            <th:block th:each="profiss : ${profissoes}">
+                                <option th:value="${profiss.id}"
+                                        th:text="${profiss.nomeDaProfissao}"></option>
+                            </th:block>
+                        </select>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <input class="btn btn-primary" type="submit" value="Atualizar"/>
+        </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
